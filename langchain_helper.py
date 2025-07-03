@@ -12,7 +12,7 @@ def generate_pet_name(animal_type, pet_color):
         template="You are a {animal_type} name generator. My pet is {pet_color} in color. Generate 5 unique and creative names for a pet {animal_type}.",
     )
 
-    name_chain = LLMChain(llm=llm, prompt=prompt_template_name)
+    name_chain = LLMChain(llm=llm, prompt=prompt_template_name, output_key='pet_name')
     response = name_chain({'animal_type': animal_type, 'pet_color': pet_color})
 
     return response
