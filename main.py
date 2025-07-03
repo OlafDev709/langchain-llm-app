@@ -1,22 +1,17 @@
-from langchain.llms import OpenAI
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from dotenv import load_dotenv
+import langchain_helper as lch
+import streamlit as st
 
-load_dotenv()
+st.title("Pet Name Generator")
+animal_type = st.sidebar.selectbox("Select Animal Type", ["dog", "cat", "cow", "bird"])
 
-def generate_pet_name(animal_type, pet_color):
-    llm = OpenAI(temperature=0.7, max_tokens=200)
-    prompt_template_name = PromptTemplate(
-        input_variables=['animal_type', 'pet_color'],
-        template="You are a {animal_type} name generator. My pet is {pet_color} in color. Generate 5 unique and creative names for a pet {animal_type}.",
-    )
+if animal_type == "dog":
+    st.sidebar.image("https://example.com/dog_image.jpg", caption="Dog Image")
+    pet_color = st.sidebar.text_area(label="Enter Dog Color", value="brown")
 
-    name_chain = LLMChain(llm=llm, prompt=prompt_template_name)
-    response = name_chain({'animal_type': animal_type, 'pet_color': pet_color})
+if animal_type == "cat":
+    st.sidebar.image("https://example.com/cat_image.jpg", caption="Cat Image")
+    pet_color = st.sidebar.text_area(label="Enter Cat Color", value="white")
 
-    return response
-
-if __name__ == "__main__":
-    pet_name = generate_pet_name("cow", "black")
-    print(f"Generated pet name: {pet_name}")
+if animal_type == "cow":
+    st.sidebar.image("https://example.com/cow_image.jpg", caption="Cow Image")
+    pet_color = st.sidebar.text_area(label="Enter Cow Color", value="black")
