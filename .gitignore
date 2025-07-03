@@ -1,0 +1,32 @@
+# Virtual environment
+.venv/
+env/
+.env
+
+# Python compiled files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Ignore API keys or sensitive data (if stored locally)
+*.key
+*.secret
+
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
